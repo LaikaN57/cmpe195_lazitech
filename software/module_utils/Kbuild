@@ -1,0 +1,3 @@
+obj-m := module.o
+#module-y := src1.o src2.o
+
