@@ -9,6 +9,8 @@ There is a lot of good documentaiton in the first link. Some of the documents ar
 * [MPLAB Harmony Integrated Software Framework Documentation](http://www.microchip.com/mplab/mplab-harmony) Note: Click the documentation tab.
   * [MPLAB Harmony Help Document](http://ww1.microchip.com/downloads/en/DeviceDoc/MPLAB%20Harmony%20Help%20%28v1.07.01%29.pdf)
     * [Creating Your Own USB Device Section](http://ww1.microchip.com/downloads/en/DeviceDoc/Volume%20IV%20-%20MPLAB%20Harmony%20Framework%20Reference%20(v1.07.01).pdf#14133)
+* [USB Device Class Specifications](http://www.usb.org/developers/docs/devclass_docs/)
+  * [USB Device Class Definition for Printing Devices](http://www.usb.org/developers/docs/devclass_docs/usbprint11a021811.pdf)
 
 ## 3 USB Host Side Driver
 ### 3.1 Kernel Source
