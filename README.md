@@ -32,6 +32,7 @@ These are some of the core includes we will need to get our module and filesyste
   * [linux/usb](https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/tree/include/linux/usb)
 * [drivers/usb](https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/tree/drivers/usb) Note: There is a lot of information in this directory. Check the README.
   * [README](https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/tree/drivers/usb/README)
+  * [class/usblp.c](https://git.kernel.org/cgit/linux/kernel/git/stable/linux-stable.git/tree/drivers/usb/class/usblp.c)
 
 ### 3.4 Example USB Drivers
 These are some links to different usb drivers that can be used for reference.
