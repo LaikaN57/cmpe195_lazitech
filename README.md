@@ -4,6 +4,12 @@
 LazTech is an upgrade kit for the K40 laser cutter/engraver. Both a new hardware motherboard and software printer drivers are included in this project.
 ## 1 Hardware
 ## 2 USB Device Side Code
+### 2.1 Documentation
+There is a lot of good documentaiton in the first link. Some of the documents are subsets of other documents.
+* [MPLAB Harmony Integrated Software Framework Documentation](http://www.microchip.com/mplab/mplab-harmony) Note: Click the documentation tab.
+  * [MPLAB Harmony Help Document](http://ww1.microchip.com/downloads/en/DeviceDoc/MPLAB%20Harmony%20Help%20%28v1.07.01%29.pdf)
+    * [Creating Your Own USB Device Section](http://ww1.microchip.com/downloads/en/DeviceDoc/Volume%20IV%20-%20MPLAB%20Harmony%20Framework%20Reference%20(v1.07.01).pdf#14133)
+
 ## 3 USB Host Side Driver
 ### 3.1 Kernel Source
 This is the kernel we will be building our module against.
