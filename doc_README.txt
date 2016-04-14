@@ -75,7 +75,7 @@ This section will cover how LazTech will execute on material
 
 How to Calibrate LazTech Mirrors and Optical Lens Head
 -----------------------------------------------------------------------------------------------------------------------------------------
-This section will cover how calibrate LazTech mirrrors and optical lens head. There are two mirrors and one optical lens head that requires calibration before executing for the laser beam to precisely hit the target.
+This section will cover how calibrate LazTech mirrrors and optical lens head. There are two mirrors (Mirror 1 and Mirror 2) and one optical lens head that requires calibration before executing for the laser beam to precisely hit the target.
 
 1. Make sure the laser is disabled
 2. Open LazTech cover
@@ -85,7 +85,6 @@ This section will cover how calibrate LazTech mirrrors and optical lens head. Th
 6. Repeat Steps 1-5 for Mirror 2 and optical lens head 
 
 
-
-## 3 How to Set-up LazTech hardware
-## 4 How to Calibrate LazTech Mirrors and Optical Lens Head 
-## 5 Design Rules
+Deisgn Rules
+-----------------------------------------------------------------------------------------------------------------------------------------
+This section will cover the design rules for users to follow when starting the prototype process: picking material and designing their prototypes.
