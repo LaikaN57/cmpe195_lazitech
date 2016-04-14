@@ -35,6 +35,22 @@ How to Execute on LazTech
 ------------------------------------------------------------------------------------------------------------------------------------------
 This section will cover how LazTech will execute on material  
 
+1.	Plug cord in a wall outlet
+2.	Fill ¾ of a bucket with water
+3.	Connect a water pump to the water inlet on the back of LazTech
+4.	Submerge the pump in the water bucket 
+5.	Place water outlet from the back of LazTech into the bucket
+6.	Plug the pump into a wall outlet
+7.	Verify that water is moving through the C0  laser 
+a.	C0  laser is located in the back of the machine
+8.	Verify that water is circulating inside the bucket
+9.	Plug fan into the wall outlet 
+10.	Place material in grid
+11.	Put on protective gear on
+12.	Plug in 110V Input Fuse 
+13.	Turn laser on 
+14.	Calibrate to start point (See “How to Calibrate LazTech Mirrors and Optical Lens Head” Section)
+
 
 
 
