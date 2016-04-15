@@ -4,7 +4,7 @@ Spring 2016 / Fall 2016
 
 What is this?
 -----------------------------------------------------------------------------------------------------------------------------------------
-LazTech is an upgrade kit for the K40 laser cutter/engraver.
+This is a set of modules to guide users on how to install the software, set-up the laser machine, execute on the laser machine, calibrate the mirrors and optical lens head, and required design rules. 
 
 
 How to Install LazTech
