@@ -88,3 +88,24 @@ This section will cover how calibrate LazTech mirrrors and optical lens head. Th
 Deisgn Rules
 -----------------------------------------------------------------------------------------------------------------------------------------
 This section will cover the design rules for users to follow when starting the prototype process: picking material and designing their prototypes.
+
+All text font is converted to path object
+
+Material options:
+      • Acrylic
+      • Paper
+      • Leather
+      • Wood
+
+Maximum Sheet Size: 8.5” x 11”
+
+Stroke Width: 0.001”
+
+Color = Action:
+      • Black = Cut
+      • Blue = Reference 
+
+Action = Execution 
+      • Fill = Ignored
+      • Stroke = Cut
+      • Stroke and File = Cut
