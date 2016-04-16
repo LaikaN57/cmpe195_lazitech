@@ -108,7 +108,7 @@ void cut_line(double x1, double y1, double x2, double y2)
 		double y_err = y1 - y_curr_pt;		
 		double slope = y_err / x_err; // also rise/run
 
-		if (x_err > y_err)
+		if (x_err < y_err)
 		{
 			(uint32_t) FIO2PIN |= (1 << 0); // step x
 			(uint32_t) FIO2PIN |= (1 << 1);// dir x
