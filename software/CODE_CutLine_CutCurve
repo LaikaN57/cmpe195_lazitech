@@ -22,21 +22,16 @@
 "h" 	TOKEN_CLOSE_PATH
 "n" 	TOKEN_END
 
-
-
-
 DIGIT DIGIT DIGIT DIGIT DIGIT DIGIT CURVE { add_curve($1, $2, $3, $4, $5, $6); }
-TOKEN_STROKE { stroke(); }
-
-
 add_curve(int a, b, c, d, e, f) {
 	// add curve to stack
 
 	// return;
 }
 
+TOKEN_STROKE { stroke(); }
 stroke() {
-	// move to origin
+	origin(x,y)// move to origin
 
 	// laser_on();
 
@@ -46,7 +41,6 @@ stroke() {
 
 	// laser_off();
 }
-
 
 DIGIT DIGIT DIGIT DIGIT LINE {cut_line($1, $2, $3, $4);}
 
@@ -60,8 +54,6 @@ line_cap(){}
 DIGIT DIGIT DIGIT DIGIT line_joint {line_joint($1, $2, $3, $4);}
 
 line_joint() {}
-
-
 
 
 /* if this is called the laser is already on. DONT MESS UP. */
