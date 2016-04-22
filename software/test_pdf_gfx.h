@@ -4,6 +4,10 @@ enum color_space_t {
 	DeviceCMYK,
 	CalGray,
 	CalRGB,
+	WhitePoint,  // added
+	BlackPoint,  // added
+	Gamma,       // added
+	Matrix,      //added 
 	Lab,
 	ICCBased,
 	Pattern,
