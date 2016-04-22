@@ -65,6 +65,69 @@ curve_t* curve_queue;
 				break;
 			case DeviceRGB:
 			case CalRGB:
+				int b = number_pop();
+				int g = number_pop();
+				int r = number_pop();
+				
+				gfx.color_stroke[0] = r;
+				gfx.color_stroke[1] = g;
+				gfx.color_stroke[2] = b;
+				break;
+					case WhitePoint: 					//added
+						int b = number_pop();
+						int g = number_pop();
+						int r = number_pop(); 
+						
+						gfx.color_stroke[0] = r;
+						gfx.color_stroke[1] = g;
+						gfx.color_stroke[2] = b;
+						break;
+						
+					case BlackPoint: 					//added (optional)
+						int b = number_pop();
+						int g = number_pop();
+						int r = number_pop(); 
+						
+						gfx.color_stroke[0] = r;
+						gfx.color_stroke[1] = g;
+						gfx.color_stroke[2] = b;
+						break;	
+						
+					case Gamma: 						//added
+						int b = number_pop();
+						int g = number_pop();
+						int r = number_pop(); 
+						
+						gfx.color_stroke[0] = r;
+						gfx.color_stroke[1] = g;
+						gfx.color_stroke[2] = b;
+						break;
+						
+					case Matrix: 					//added
+						int b_c = number_pop();
+						int g_c = number_pop();
+						int r_c = number_pop(); 
+						
+						int b_b = number_pop();
+						int g_b = number_pop();
+						int r_b = number_pop(); 
+						
+						int b_a = number_pop();
+						int g_a = number_pop();
+						int r_a = number_pop(); 
+						
+						gfx.color_stroke[0] = r_a;
+						gfx.color_stroke[1] = g_a;
+						gfx.color_stroke[2] = b_a;
+						
+						gfx.color_stroke[0] = r_b;
+						gfx.color_stroke[1] = g_b;
+						gfx.color_stroke[2] = b_b;
+						
+						gfx.color_stroke[0] = r_c;
+						gfx.color_stroke[1] = g_c;
+						gfx.color_stroke[2] = b_c;
+						break;
 			case Lab:
 				int b = number_pop();
 				int g = number_pop();
