@@ -47,7 +47,13 @@ curve_t* curve_queue;
 		int b = number_pop();
 		int a = number_pop();
 	
-		gfx_append_ctm(a, b, c, d, e, f); // TODO: make this do math stuff
+		gfx_append_ctm(a, b, c, d, e, f); // [a b 0
+						  //  c d 0 
+						  //  e f 1]
+		
+		int pt = x, y;			  //should be double?
+		int x' = (a * x) + (c * y) + (e); // last digit multiplied by 1
+		int y' = (b * x) + (d * y) + (f); // last digit multiplied by 1
 	}	// append the CTM
 
 // color ops
