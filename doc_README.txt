@@ -1,4 +1,4 @@
-cmpe195_laztech
+CmpE 195 LazTech README
 =======================
 Spring 2016 / Fall 2016
 
@@ -9,7 +9,7 @@ This is a set of modules to guide users on how to install the software, set-up t
 
 How to Install LazTech
 -----------------------------------------------------------------------------------------------------------------------------------------
-This section will cover how to connect LazTech to the your computer/laptop
+This section will cover how to connect LazTech to the your computer/laptop. Additionally you can check out https://youtu.be/-Xdjq9jhwUo for an instructional video.
 
 1. Set-up LazTech (see "How to Set-up LazTech Hardware" Section)
 2. Calibrate LazTech (see "How to Calibrate LazTech Mirrors and Optical Lens Head" Section)
