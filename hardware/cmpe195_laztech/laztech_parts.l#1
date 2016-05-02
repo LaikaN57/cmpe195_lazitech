@@ -497,32 +497,6 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="K40FFC">
-<gates>
-<gate name="G$1" symbol="K40FFC" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="FFC-12">
-<connects>
-<connect gate="G$1" pin="5V" pad="P$10"/>
-<connect gate="G$1" pin="GND" pad="P$7"/>
-<connect gate="G$1" pin="NC1" pad="P$5"/>
-<connect gate="G$1" pin="NC2" pad="P$6"/>
-<connect gate="G$1" pin="NC3" pad="P$11"/>
-<connect gate="G$1" pin="NC4" pad="P$12"/>
-<connect gate="G$1" pin="XA+" pad="P$2"/>
-<connect gate="G$1" pin="XA-" pad="P$1"/>
-<connect gate="G$1" pin="XB+" pad="P$4"/>
-<connect gate="G$1" pin="XB-" pad="P$3"/>
-<connect gate="G$1" pin="XHOME" pad="P$8"/>
-<connect gate="G$1" pin="YHOME" pad="P$9"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 </devicesets>
 </library>
 </drawing>
