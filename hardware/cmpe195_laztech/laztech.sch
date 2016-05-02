@@ -1016,6 +1016,16 @@
 <wire x1="228.6" y1="149.86" x2="233.68" y2="149.86" width="0.1524" layer="91"/>
 <label x="231.14" y="149.86" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="U$2" gate="G$1" pin="ROSC"/>
+<wire x1="309.88" y1="142.24" x2="309.88" y2="147.32" width="0.1524" layer="91"/>
+<label x="309.88" y="144.78" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="ROSC"/>
+<wire x1="309.88" y1="264.16" x2="309.88" y2="269.24" width="0.1524" layer="91"/>
+<label x="309.88" y="266.7" size="1.778" layer="95" rot="R90"/>
+</segment>
 </net>
 <net name="+3V3" class="0">
 <segment>
@@ -1023,8 +1033,6 @@
 <wire x1="248.92" y1="142.24" x2="254" y2="142.24" width="0.1524" layer="91"/>
 <label x="251.46" y="142.24" size="1.778" layer="95"/>
 </segment>
-</net>
-<net name="+5V" class="0">
 <segment>
 <pinref part="U$2" gate="G$1" pin="VDD"/>
 <wire x1="284.48" y1="132.08" x2="279.4" y2="132.08" width="0.1524" layer="91"/>
@@ -1035,6 +1043,8 @@
 <wire x1="284.48" y1="254" x2="279.4" y2="254" width="0.1524" layer="91"/>
 <label x="276.86" y="254" size="1.778" layer="95"/>
 </segment>
+</net>
+<net name="+5V" class="0">
 <segment>
 <pinref part="U$4" gate="G$1" pin="5V"/>
 <wire x1="396.24" y1="261.62" x2="391.16" y2="261.62" width="0.1524" layer="91"/>
