@@ -1,2 +1,3 @@
 hardware/cmpe195_laztech/eagle.epf
-
+hardware/cmpe195_laztech/*.*#*
+hardware/cmpe195_laztech/*.*~
