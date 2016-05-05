@@ -261,6 +261,10 @@
 <pad name="11" x="12.7" y="0" drill="0.8"/>
 <pad name="12" x="13.97" y="-1.27" drill="0.8"/>
 </package>
+<package name="M1X2">
+<pad name="1" x="0" y="0" drill="0.8" shape="square" first="yes"/>
+<pad name="2" x="2.54" y="0" drill="0.8"/>
+</package>
 </packages>
 <symbols>
 <symbol name="SJSUONEX">
@@ -355,22 +359,30 @@
 <wire x1="-5.08" y1="-10.16" x2="-5.08" y2="10.16" width="0.254" layer="94"/>
 </symbol>
 <symbol name="K40FFC">
-<pin name="XA-" x="-12.7" y="27.94" length="middle"/>
-<pin name="XA+" x="-12.7" y="22.86" length="middle"/>
-<pin name="XB-" x="-12.7" y="17.78" length="middle"/>
-<pin name="XB+" x="-12.7" y="12.7" length="middle"/>
-<pin name="NC1" x="-12.7" y="7.62" length="middle"/>
-<pin name="NC2" x="-12.7" y="2.54" length="middle"/>
-<pin name="GND" x="-12.7" y="-2.54" length="middle"/>
-<pin name="XHOME" x="-12.7" y="-7.62" length="middle"/>
-<pin name="YHOME" x="-12.7" y="-12.7" length="middle"/>
-<pin name="5V" x="-12.7" y="-17.78" length="middle"/>
-<pin name="NC3" x="-12.7" y="-22.86" length="middle"/>
-<pin name="NC4" x="-12.7" y="-27.94" length="middle"/>
+<pin name="NC1" x="-12.7" y="27.94" length="middle"/>
+<pin name="NC2" x="-12.7" y="22.86" length="middle"/>
+<pin name="+5V" x="-12.7" y="17.78" length="middle"/>
+<pin name="YHOME" x="-12.7" y="12.7" length="middle"/>
+<pin name="XHOME" x="-12.7" y="7.62" length="middle"/>
+<pin name="GND" x="-12.7" y="2.54" length="middle"/>
+<pin name="NC3" x="-12.7" y="-2.54" length="middle"/>
+<pin name="NC4" x="-12.7" y="-7.62" length="middle"/>
+<pin name="XB+" x="-12.7" y="-12.7" length="middle"/>
+<pin name="XB-" x="-12.7" y="-17.78" length="middle"/>
+<pin name="XA+" x="-12.7" y="-22.86" length="middle"/>
+<pin name="XA-" x="-12.7" y="-27.94" length="middle"/>
 <wire x1="-7.62" y1="30.48" x2="7.62" y2="30.48" width="0.254" layer="94"/>
 <wire x1="7.62" y1="30.48" x2="7.62" y2="-30.48" width="0.254" layer="94"/>
 <wire x1="7.62" y1="-30.48" x2="-7.62" y2="-30.48" width="0.254" layer="94"/>
 <wire x1="-7.62" y1="-30.48" x2="-7.62" y2="30.48" width="0.254" layer="94"/>
+</symbol>
+<symbol name="SJSUONEVIN">
+<pin name="+5V" x="10.16" y="2.54" length="middle" rot="R180"/>
+<pin name="GND" x="10.16" y="-2.54" length="middle" rot="R180"/>
+<wire x1="-5.08" y1="5.08" x2="5.08" y2="5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-5.08" x2="-5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-5.08" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -504,18 +516,34 @@
 <devices>
 <device name="" package="FFC-12">
 <connects>
-<connect gate="G$1" pin="5V" pad="10"/>
-<connect gate="G$1" pin="GND" pad="7"/>
-<connect gate="G$1" pin="NC1" pad="5"/>
-<connect gate="G$1" pin="NC2" pad="6"/>
-<connect gate="G$1" pin="NC3" pad="11"/>
-<connect gate="G$1" pin="NC4" pad="12"/>
-<connect gate="G$1" pin="XA+" pad="2"/>
-<connect gate="G$1" pin="XA-" pad="1"/>
-<connect gate="G$1" pin="XB+" pad="4"/>
-<connect gate="G$1" pin="XB-" pad="3"/>
-<connect gate="G$1" pin="XHOME" pad="8"/>
-<connect gate="G$1" pin="YHOME" pad="9"/>
+<connect gate="G$1" pin="+5V" pad="3"/>
+<connect gate="G$1" pin="GND" pad="6"/>
+<connect gate="G$1" pin="NC1" pad="1"/>
+<connect gate="G$1" pin="NC2" pad="2"/>
+<connect gate="G$1" pin="NC3" pad="7"/>
+<connect gate="G$1" pin="NC4" pad="8"/>
+<connect gate="G$1" pin="XA+" pad="11"/>
+<connect gate="G$1" pin="XA-" pad="12"/>
+<connect gate="G$1" pin="XB+" pad="9"/>
+<connect gate="G$1" pin="XB-" pad="10"/>
+<connect gate="G$1" pin="XHOME" pad="5"/>
+<connect gate="G$1" pin="YHOME" pad="4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SJSUONEVIN">
+<gates>
+<gate name="G$1" symbol="SJSUONEVIN" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="M1X2">
+<connects>
+<connect gate="G$1" pin="+5V" pad="1"/>
+<connect gate="G$1" pin="GND" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>

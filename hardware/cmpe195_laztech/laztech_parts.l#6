@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
@@ -91,7 +91,7 @@
 <wire x1="6.1" y1="-1.3" x2="6.1" y2="-0.65" width="0.1524" layer="21"/>
 <wire x1="0" y1="-1.3" x2="6.1" y2="-1.3" width="0.1524" layer="21"/>
 </package>
-<package name="SJSUONEX">
+<package name="M2X17">
 <pad name="1" x="0" y="40.64" drill="1.016" diameter="1.8796" shape="square" first="yes"/>
 <pad name="2" x="0" y="38.1" drill="1.016" diameter="1.8796"/>
 <pad name="3" x="0" y="35.56" drill="1.016" diameter="1.8796"/>
@@ -261,9 +261,13 @@
 <pad name="11" x="12.7" y="0" drill="0.8"/>
 <pad name="12" x="13.97" y="-1.27" drill="0.8"/>
 </package>
+<package name="M1X2">
+<pad name="1" x="0" y="0" drill="0.8" shape="square" first="yes"/>
+<pad name="2" x="2.54" y="0" drill="0.8"/>
+</package>
 </packages>
 <symbols>
-<symbol name="SJSUONE">
+<symbol name="SJSUONEX">
 <pin name="RXD3" x="-20.32" y="40.64" length="middle"/>
 <pin name="TXD3" x="-20.32" y="35.56" length="middle"/>
 <pin name="SCK1" x="-20.32" y="30.48" length="middle"/>
@@ -372,6 +376,14 @@
 <wire x1="7.62" y1="-30.48" x2="-7.62" y2="-30.48" width="0.254" layer="94"/>
 <wire x1="-7.62" y1="-30.48" x2="-7.62" y2="30.48" width="0.254" layer="94"/>
 </symbol>
+<symbol name="SJSUONEVIN">
+<pin name="+5V" x="10.16" y="2.54" length="middle" rot="R180"/>
+<pin name="GND" x="10.16" y="-2.54" length="middle" rot="R180"/>
+<wire x1="-5.08" y1="5.08" x2="5.08" y2="5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="5.08" x2="5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-5.08" x2="-5.08" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-5.08" x2="-5.08" y2="5.08" width="0.254" layer="94"/>
+</symbol>
 </symbols>
 <devicesets>
 <deviceset name="A4985SLPTR-T">
@@ -413,12 +425,12 @@
 </device>
 </devices>
 </deviceset>
-<deviceset name="SJSUONE">
+<deviceset name="SJSUONEX">
 <gates>
-<gate name="G$1" symbol="SJSUONE" x="0" y="0"/>
+<gate name="G$1" symbol="SJSUONEX" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="SJSUONEX">
+<device name="" package="M2X17">
 <connects>
 <connect gate="G$1" pin="3V3" pad="34"/>
 <connect gate="G$1" pin="GND1" pad="17"/>
@@ -516,6 +528,22 @@
 <connect gate="G$1" pin="XB-" pad="3"/>
 <connect gate="G$1" pin="XHOME" pad="8"/>
 <connect gate="G$1" pin="YHOME" pad="9"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="SJSUONEVIN">
+<gates>
+<gate name="G$1" symbol="SJSUONEVIN" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="M1X2">
+<connects>
+<connect gate="G$1" pin="+5V" pad="1"/>
+<connect gate="G$1" pin="GND" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
