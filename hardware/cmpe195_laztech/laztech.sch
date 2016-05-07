@@ -499,8 +499,8 @@
 </packages>
 <symbols>
 <symbol name="A4985">
-<pin name="CP1" x="0" y="35.56" length="middle" rot="R270"/>
-<pin name="CP2" x="10.16" y="35.56" length="middle" rot="R270"/>
+<pin name="CP1" x="0" y="35.56" length="middle" swaplevel="1" rot="R270"/>
+<pin name="CP2" x="10.16" y="35.56" length="middle" swaplevel="1" rot="R270"/>
 <pin name="VCP" x="20.32" y="35.56" length="middle" rot="R270"/>
 <pin name="VREG" x="-20.32" y="35.56" length="middle" rot="R270"/>
 <pin name="MS1" x="-35.56" y="0" length="middle" direction="in"/>
@@ -511,19 +511,19 @@
 <pin name="VDD" x="-35.56" y="25.4" length="middle" direction="pwr"/>
 <pin name="STEP" x="-35.56" y="5.08" length="middle" direction="in" function="clk"/>
 <pin name="VREF" x="-35.56" y="-25.4" length="middle" direction="in"/>
-<pin name="GND1" x="-12.7" y="-35.56" length="middle" direction="sup" rot="R90"/>
+<pin name="GND1" x="-12.7" y="-35.56" length="middle" direction="sup" swaplevel="4" rot="R90"/>
 <pin name="DIR" x="-35.56" y="-10.16" length="middle" direction="in"/>
-<pin name="OUT1B" x="35.56" y="2.54" length="middle" rot="R180"/>
+<pin name="OUT1B" x="35.56" y="2.54" length="middle" swaplevel="2" rot="R180"/>
 <pin name="VBB1" x="35.56" y="22.86" length="middle" rot="R180"/>
 <pin name="SENSE1" x="35.56" y="-2.54" length="middle" rot="R180"/>
-<pin name="OUT1A" x="35.56" y="7.62" length="middle" rot="R180"/>
-<pin name="OUT2A" x="35.56" y="-12.7" length="middle" rot="R180"/>
+<pin name="OUT1A" x="35.56" y="7.62" length="middle" swaplevel="2" rot="R180"/>
+<pin name="OUT2A" x="35.56" y="-12.7" length="middle" swaplevel="3" rot="R180"/>
 <pin name="SENSE2" x="35.56" y="-22.86" length="middle" rot="R180"/>
 <pin name="VBB2" x="35.56" y="17.78" length="middle" rot="R180"/>
-<pin name="OUT2B" x="35.56" y="-17.78" length="middle" rot="R180"/>
+<pin name="OUT2B" x="35.56" y="-17.78" length="middle" swaplevel="3" rot="R180"/>
 <pin name="ENABLE" x="-35.56" y="-15.24" length="middle" direction="in" function="dot"/>
-<pin name="GND2" x="-2.54" y="-35.56" length="middle" direction="sup" rot="R90"/>
-<pin name="PAD" x="7.62" y="-35.56" length="middle" direction="sup" rot="R90"/>
+<pin name="GND2" x="-2.54" y="-35.56" length="middle" direction="sup" swaplevel="4" rot="R90"/>
+<pin name="PAD" x="7.62" y="-35.56" length="middle" direction="sup" swaplevel="4" rot="R90"/>
 <wire x1="30.48" y1="30.48" x2="30.48" y2="-30.48" width="0.254" layer="94"/>
 <wire x1="-30.48" y1="30.48" x2="-30.48" y2="-30.48" width="0.254" layer="94"/>
 <wire x1="-30.48" y1="-30.48" x2="30.48" y2="-30.48" width="0.254" layer="94"/>
@@ -546,7 +546,7 @@
 <pin name="P1.19" x="-20.32" y="-25.4" length="middle"/>
 <pin name="P0.30" x="-20.32" y="-30.48" length="middle"/>
 <pin name="P0.29" x="-20.32" y="-35.56" length="middle"/>
-<pin name="GND1" x="-20.32" y="-40.64" length="middle" direction="sup"/>
+<pin name="GND1" x="-20.32" y="-40.64" length="middle" direction="sup" swaplevel="1"/>
 <pin name="P0.0" x="20.32" y="-40.64" length="middle" rot="R180"/>
 <pin name="P0.1" x="20.32" y="-35.56" length="middle" rot="R180"/>
 <pin name="MOSI0" x="20.32" y="-30.48" length="middle" rot="R180"/>
@@ -562,7 +562,7 @@
 <pin name="P2.2PWM" x="20.32" y="20.32" length="middle" rot="R180"/>
 <pin name="P2.1PWM" x="20.32" y="25.4" length="middle" rot="R180"/>
 <pin name="P2.0PWM" x="20.32" y="30.48" length="middle" rot="R180"/>
-<pin name="GND2" x="20.32" y="35.56" length="middle" direction="sup" rot="R180"/>
+<pin name="GND2" x="20.32" y="35.56" length="middle" direction="sup" swaplevel="1" rot="R180"/>
 <pin name="3V3" x="20.32" y="40.64" length="middle" direction="pwr" rot="R180"/>
 <wire x1="-15.24" y1="43.18" x2="15.24" y2="43.18" width="0.254" layer="94"/>
 <wire x1="15.24" y1="43.18" x2="15.24" y2="-43.18" width="0.254" layer="94"/>
@@ -588,20 +588,20 @@
 <pin name="GND" x="-12.7" y="2.54" length="middle" direction="sup"/>
 <pin name="NC3" x="-12.7" y="-2.54" length="middle" direction="nc"/>
 <pin name="NC4" x="-12.7" y="-7.62" length="middle" direction="nc"/>
-<pin name="XB+" x="-12.7" y="-12.7" length="middle" direction="pas"/>
-<pin name="XB-" x="-12.7" y="-17.78" length="middle" direction="pas"/>
-<pin name="XA+" x="-12.7" y="-22.86" length="middle" direction="pas"/>
-<pin name="XA-" x="-12.7" y="-27.94" length="middle" direction="pas"/>
+<pin name="XB+" x="-12.7" y="-12.7" length="middle" direction="pas" swaplevel="1"/>
+<pin name="XB-" x="-12.7" y="-17.78" length="middle" direction="pas" swaplevel="1"/>
+<pin name="XA+" x="-12.7" y="-22.86" length="middle" direction="pas" swaplevel="2"/>
+<pin name="XA-" x="-12.7" y="-27.94" length="middle" direction="pas" swaplevel="2"/>
 <wire x1="-7.62" y1="30.48" x2="7.62" y2="30.48" width="0.254" layer="94"/>
 <wire x1="7.62" y1="30.48" x2="7.62" y2="-30.48" width="0.254" layer="94"/>
 <wire x1="7.62" y1="-30.48" x2="-7.62" y2="-30.48" width="0.254" layer="94"/>
 <wire x1="-7.62" y1="-30.48" x2="-7.62" y2="30.48" width="0.254" layer="94"/>
 </symbol>
 <symbol name="K40-Y">
-<pin name="YA-" x="-10.16" y="7.62" length="middle" direction="pas"/>
-<pin name="YA+" x="-10.16" y="2.54" length="middle" direction="pas"/>
-<pin name="YB-" x="-10.16" y="-2.54" length="middle" direction="pas"/>
-<pin name="YB+" x="-10.16" y="-7.62" length="middle" direction="pas"/>
+<pin name="YA-" x="-10.16" y="7.62" length="middle" direction="pas" swaplevel="1"/>
+<pin name="YA+" x="-10.16" y="2.54" length="middle" direction="pas" swaplevel="1"/>
+<pin name="YB-" x="-10.16" y="-2.54" length="middle" direction="pas" swaplevel="2"/>
+<pin name="YB+" x="-10.16" y="-7.62" length="middle" direction="pas" swaplevel="2"/>
 <wire x1="-5.08" y1="10.16" x2="5.08" y2="10.16" width="0.254" layer="94"/>
 <wire x1="5.08" y1="10.16" x2="5.08" y2="-10.16" width="0.254" layer="94"/>
 <wire x1="5.08" y1="-10.16" x2="-5.08" y2="-10.16" width="0.254" layer="94"/>
@@ -634,13 +634,13 @@
 <text x="1.016" y="-4.191" size="1.778" layer="96">&gt;VALUE</text>
 <rectangle x1="-2.253" y1="0.668" x2="-1.364" y2="0.795" layer="94"/>
 <rectangle x1="-1.872" y1="0.287" x2="-1.745" y2="1.176" layer="94"/>
-<pin name="+" x="0" y="2.54" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
-<pin name="-" x="0" y="-5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
+<pin name="+" x="0" y="2.54" visible="off" length="short" direction="pas" rot="R270"/>
+<pin name="-" x="0" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
 </symbol>
 <symbol name="LM317">
 <pin name="VIN" x="-15.24" y="0" length="middle" direction="pwr"/>
 <pin name="ADJ" x="0" y="-15.24" length="middle" direction="in" rot="R90"/>
-<pin name="VOUT" x="15.24" y="0" length="middle" direction="out" rot="R180"/>
+<pin name="VOUT" x="15.24" y="0" length="middle" direction="out" swaplevel="1" rot="R180"/>
 <wire x1="-10.16" y1="5.08" x2="10.16" y2="5.08" width="0.254" layer="94"/>
 <wire x1="10.16" y1="5.08" x2="10.16" y2="-10.16" width="0.254" layer="94"/>
 <wire x1="10.16" y1="-10.16" x2="-10.16" y2="-10.16" width="0.254" layer="94"/>
