@@ -490,6 +490,12 @@
 <wire x1="2.5" y1="1.63" x2="2.5" y2="-1.63" width="0.2032" layer="21"/>
 <circle x="-1.886" y="-1.378" radius="0.2231" width="0.2032" layer="21"/>
 </package>
+<package name="R6432">
+<smd name="1" x="-3.25" y="0" dx="1.6" dy="3.1" layer="1"/>
+<smd name="2" x="3.25" y="0" dx="1.6" dy="3.1" layer="1"/>
+<text x="-4.05" y="2.05" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-4.05" y="-3.32" size="1.27" layer="25" ratio="10">&gt;VALUE</text>
+</package>
 <package name="R2012">
 <smd name="1" x="-1" y="0" dx="1.35" dy="1.55" layer="1"/>
 <smd name="2" x="1" y="0" dx="1.35" dy="1.55" layer="1"/>
@@ -883,7 +889,25 @@
 <gate name="G$1" symbol="RES" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="R2012">
+<device name="" package="R6432">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="2012" package="R2012">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="6432" package="R6432">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
 <connect gate="G$1" pin="2" pad="2"/>
@@ -928,13 +952,13 @@
 <part name="C12" library="laztech_parts" deviceset="CAP" device=""/>
 <part name="U$8" library="laztech_parts" deviceset="LM317" device=""/>
 <part name="C13" library="laztech_parts" deviceset="CAP" device=""/>
-<part name="R1" library="laztech_parts" deviceset="RES" device=""/>
-<part name="R2" library="laztech_parts" deviceset="RES" device=""/>
-<part name="R3" library="laztech_parts" deviceset="RES" device=""/>
-<part name="R4" library="laztech_parts" deviceset="RES" device=""/>
-<part name="R5" library="laztech_parts" deviceset="RES" device=""/>
-<part name="R6" library="laztech_parts" deviceset="RES" device=""/>
-<part name="R7" library="laztech_parts" deviceset="RES" device=""/>
+<part name="R1" library="laztech_parts" deviceset="RES" device="2012" value="RES2012"/>
+<part name="R2" library="laztech_parts" deviceset="RES" device="2012" value="RES2012"/>
+<part name="R3" library="laztech_parts" deviceset="RES" device="2012" value="RES2012"/>
+<part name="R4" library="laztech_parts" deviceset="RES" device="6432" value="RES6432"/>
+<part name="R5" library="laztech_parts" deviceset="RES" device="6432" value="RES6432"/>
+<part name="R6" library="laztech_parts" deviceset="RES" device="6432" value="RES6432"/>
+<part name="R7" library="laztech_parts" deviceset="RES" device="6432" value="RES6432"/>
 </parts>
 <sheets>
 <sheet>
