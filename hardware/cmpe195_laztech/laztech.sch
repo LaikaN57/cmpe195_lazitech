@@ -858,8 +858,8 @@
 <devices>
 <device name="" package="C6358R">
 <connects>
-<connect gate="G$1" pin="+" pad="1"/>
-<connect gate="G$1" pin="-" pad="2"/>
+<connect gate="G$1" pin="+" pad="2"/>
+<connect gate="G$1" pin="-" pad="1"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -889,15 +889,6 @@
 <gate name="G$1" symbol="RES" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="R6432">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
 <device name="2012" package="R2012">
 <connects>
 <connect gate="G$1" pin="1" pad="1"/>
@@ -953,7 +944,6 @@
 <part name="U$8" library="laztech_parts" deviceset="LM317" device=""/>
 <part name="C13" library="laztech_parts" deviceset="CAP" device=""/>
 <part name="R1" library="laztech_parts" deviceset="RES" device="2012" value="RES2012"/>
-<part name="R2" library="laztech_parts" deviceset="RES" device="2012" value="RES2012"/>
 <part name="R3" library="laztech_parts" deviceset="RES" device="2012" value="RES2012"/>
 <part name="R4" library="laztech_parts" deviceset="RES" device="6432" value="RES6432"/>
 <part name="R5" library="laztech_parts" deviceset="RES" device="6432" value="RES6432"/>
@@ -989,7 +979,6 @@
 <instance part="U$8" gate="G$1" x="119.38" y="264.16"/>
 <instance part="C13" gate="G$1" x="99.06" y="254"/>
 <instance part="R1" gate="G$1" x="119.38" y="233.68" rot="R90"/>
-<instance part="R2" gate="G$1" x="149.86" y="264.16"/>
 <instance part="R3" gate="G$1" x="139.7" y="254" rot="R90"/>
 <instance part="R4" gate="G$1" x="269.24" y="154.94"/>
 <instance part="R5" gate="G$1" x="269.24" y="134.62"/>
@@ -1493,12 +1482,9 @@
 <net name="N$34" class="0">
 <segment>
 <pinref part="U$8" gate="G$1" pin="VOUT"/>
-<pinref part="R2" gate="G$1" pin="1"/>
 <wire x1="134.62" y1="264.16" x2="139.7" y2="264.16" width="0.1524" layer="91"/>
 <pinref part="R3" gate="G$1" pin="2"/>
-<wire x1="139.7" y1="264.16" x2="144.78" y2="264.16" width="0.1524" layer="91"/>
 <wire x1="139.7" y1="259.08" x2="139.7" y2="264.16" width="0.1524" layer="91"/>
-<junction x="139.7" y="264.16"/>
 </segment>
 </net>
 <net name="VREF" class="0">
@@ -1511,14 +1497,9 @@
 <wire x1="119.38" y1="243.84" x2="119.38" y2="238.76" width="0.1524" layer="91"/>
 <wire x1="139.7" y1="243.84" x2="119.38" y2="243.84" width="0.1524" layer="91"/>
 <junction x="119.38" y="243.84"/>
-<pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="154.94" y1="264.16" x2="160.02" y2="264.16" width="0.1524" layer="91"/>
-<wire x1="160.02" y1="264.16" x2="165.1" y2="264.16" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="243.84" x2="160.02" y2="243.84" width="0.1524" layer="91"/>
-<wire x1="160.02" y1="243.84" x2="160.02" y2="264.16" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="243.84" x2="144.78" y2="243.84" width="0.1524" layer="91"/>
 <junction x="139.7" y="243.84"/>
-<junction x="160.02" y="264.16"/>
-<label x="162.56" y="264.16" size="1.778" layer="95"/>
+<label x="142.24" y="243.84" size="1.778" layer="95"/>
 </segment>
 <segment>
 <pinref part="U$2" gate="G$1" pin="VREF"/>
