@@ -1,0 +1,39 @@
+[a-zA-Z].* TOKEN_LETTER
+[0-9][.][0-9] TOKEN_DIGIT
+
+"q"	SaveOnStack
+"Q" 	RestoreFromStack
+"w" 	TOKEN_WIDTH
+"J" 	TOKEN_CAP
+"j" 	TOKEN_JOIN
+"d" 	TOKEN_DASH
+"h" 	TOKEN_MOVE
+"S" 	TOKEN_STROKE
+"f*" 	TOKEN_STROKE
+"B" 	TOKEN_STROKE
+"b" 	TOKEN_STROKE
+"b*" 	TOKEN_STROKE
+"s" 	TOKEN_STOKE_SAVE
+"m" 	TOKEN_SUBPATH
+"c" 	TOKEN_CURVE
+"v" 	TOKEN_CURVE
+"y" 	TOKEN_CURVE
+"re" 	TOKEN_RECTANGLE
+"h" 	TOKEN_CLOSE_PATH
+"n" 	TOKEN_END
+
+TOKEN_STROKE { stroke(); }
+
+DIGIT DIGIT DIGIT DIGIT DIGIT DIGIT CURVE { add_curve($1, $2, $3, $4, $5, $6); }
+
+DIGIT DIGIT DIGIT DIGIT LINE {cut_line($1, $2, $3, $4);}
+
+DIGIT DIGIT DIGIT DIGIT DIGIT DIGIT DIGIT DIGIT CURVE_CUT {cut_curve($1, $2, $3, $4, $5, $6, $7, $8);}
+
+DIGIT DIGIT DIGIT DIGIT line_cap {line_cap($1, $2, $3, $4);}
+
+line_cap(){}
+
+DIGIT DIGIT DIGIT DIGIT line_joint {line_joint($1, $2, $3, $4);}
+
+line_joint() {}
