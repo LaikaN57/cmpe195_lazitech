@@ -1,25 +1,58 @@
-/*
- * LazTech.h
- *
- *  Created on: Sep 1, 2016
- *      Author: yasminejamjoum
- */
-
 #ifndef LAZTECH_H_
 #define LAZTECH_H_
+
 #include <iostream>
+#include <string>
+#include <memory>
+#include <vector>
+#include <stdlib.h>
+#include <cmath>
+#include "Pt.cpp"
+
 using namespace std;
+
+//PIC32MX250F128B
+//#byte	ADCON1=0x06 //Changes PORT A to Digital; turns off analog to digital converters
+//#byte	CMCON =0x07 //Disable Analog Comparators
+//#byte	TRISA=0x00 //Configure PORT A as Output
+//#byte	TRISB=0x00 //Configure PORT B as Output
+//#byte	TRISC=0x00 //Configure PORT C as Output
+//#byte	TRISD=0x00 //Configure PORT D as Output
+//#byte	TRISE=0x00 //Configure PORT E as Output
+//#byte	PORTA=0
+//#byte	PORTB=0
+//#byte	PORTC=0
+//#byte	PORTD=0
+//#byte	PORTE=0
+//#define MCLR 18 //Connect to RESET
+//#define VSS 39 //Connect to EN
+//#define VDD 40 //Connect to step
+//#define //Connect to dir
+//#define //Connect to MS1
+//#define //Connect to MS2
+
+//K40 CO2 Laser Engraver/Cutter
+//#define X_MAX_POS 337
+//#define X_MIN_POS 0
+//#define Y_MAX_POS 230
+//#define Y_MIN_POS 0
 
 //communication speed of the printer; need to know the value
 #define BAUDRATE  //value?
 
-
-//Declare pin functions on the stepper motors
-#define step 2
-#define dir 3
-#define MS1 4
-#define MS2 5
-#define EN  6
+//Declare pin functions on the stepper motors (ES Package)
+//Inputs
+#define step 14
+#define dir 17
+#define MS1 8
+#define MS2 9
+#define EN  2
+#define RESET 10
+//Outputs to Motors
+#define OUT1A 21
+#define OUT1B 18
+#define OUT2A 22
+#define OUT2B 1
 
 //Acceleration and velocity
 #define STEPPER_VELOCITY_DEFAULT           500
@@ -29,7 +62,6 @@ using namespace std;
 
 //Time
 #define MAX_TIMER_VALUE 0xFFFF
-#define delay
 
 #define STEPPER_PWM_MAX_DUTY_CYCLE 128
 
@@ -83,20 +115,28 @@ class LazTech
 {
 public:
 	LazTech(double x, double y); //point (x,y)
+	~LazTech();
 	LazTech(); // default constructor
 	void start(); // turns on the laser cutter
 	void end(); // turns off the laser cutter regardless of state
+	void delay(double a);
 	double get_x();
 	double get_y();
 	void set_x(double x);
 	void set_y(double y);
 	void origin(double x, double y); //for calibration and reset purposes
 	void cutLine(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4);// input as an XYXYXYXY
-	void cutCurve();
-	void defaultState(string stroke, double width, double start); // default if selections are not filled before execution
+	void cutCurve(double x, double y, string stroke);
+	void defaultState(string stroke, double width); // default if selections are not filled before execution
 	double bezierCurve(double, double, double, double, double, double, double, double); // bezier formula
+	double getPt( double n1 , double n2 , float perc );
+	double factorial(double num);
+	double binomial_coeff( double a, double b);
+	void getPt_2();
+	Pt getBezierPoint(std::vector<Pt>& pts, double t);
 	void add_curve(int a, int b, int c, int d, int e, int f);
 	void stroke_line();
+
 
 private:
 	double x1, x2, x3, x4, y1, y2, y3, y4; // point (x1,y1) are original pt
