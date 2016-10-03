@@ -20,9 +20,9 @@ Pt::Pt(double a, double b)
 	y = b;
 }
 
-Pt::Pt(const Pt& pts)
+Pt::Pt(const Pt& input)
 {
-	(*this) = pts;
+	(*this) = input;
 }
 
 Pt::~Pt()
@@ -30,10 +30,10 @@ Pt::~Pt()
 
 }
 
-Pt& Pt::operator=(const Pt& pts)
+Pt& Pt::operator=(const Pt& input)
 {
-	x = pts.x;
-	y = pts.y;
+	x = input.x;
+	y = input.y;
 	return *this;
 }
 
@@ -158,8 +158,8 @@ Pt Pt::operator/=(double num)
 	return *this;
 };
 
-std::ostream& operator<<(std::ostream& output, const Pt& pt)
+std::ostream& operator<<(std::ostream& output, const Pt& pts)
 {
-	output << "x = " << pt.x << "  y = " << pt.y;
+	output << "x = " << pts.x << "  y = " << pts.y;
 	return output;
 }
