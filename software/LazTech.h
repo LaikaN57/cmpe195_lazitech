@@ -11,25 +11,74 @@
 
 using namespace std;
 
-//PIC32MX250F128B
-//#byte	ADCON1=0x06 //Changes PORT A to Digital; turns off analog to digital converters
-//#byte	CMCON =0x07 //Disable Analog Comparators
-//#byte	TRISA=0x00 //Configure PORT A as Output
-//#byte	TRISB=0x00 //Configure PORT B as Output
-//#byte	TRISC=0x00 //Configure PORT C as Output
-//#byte	TRISD=0x00 //Configure PORT D as Output
-//#byte	TRISE=0x00 //Configure PORT E as Output
-//#byte	PORTA=0
-//#byte	PORTB=0
-//#byte	PORTC=0
-//#byte	PORTD=0
-//#byte	PORTE=0
-//#define MCLR 18 //Connect to RESET
-//#define VSS 39 //Connect to EN
-//#define VDD 40 //Connect to step
-//#define //Connect to dir
-//#define //Connect to MS1
-//#define //Connect to MS2
+uint8_t STEPPER_PIN_XIN[6] = {11, 14, 5, 6, 23, 7};
+//Declare pin functions on the stepper motors (ES Package)
+//Inputs of the stepper motor drivers
+//Pin 11 is STEP
+//Pin 14 id DIR
+//Pin 5 is MS1
+//Pin 6 is MS2
+//Pin 23 is EN
+//Pin 7 is RESET
+
+uint8_t STEPPER_PIN_YIN[6] = {11, 14, 5, 6, 23, 7};
+//Declare pin functions on the stepper motors (ES Package)
+//Inputs of the stepper motor drivers
+//Pin 11 is STEP
+//Pin 14 id DIR
+//Pin 5 is MS1
+//Pin 6 is MS2
+//Pin 23 is EN
+//Pin 7 is RESET
+
+uint8_t STEPPER_PIN_OUT[4] = {18, 15, 19, 22};
+//Outputs from stepper motor drivers
+//Pin 18 is OUT1A
+//Pin 15 is OUT1B
+//Pin 19 is OUT2A
+//Pin 22 is OUT2B
+
+//States
+uint8_t STEPPER_STATE_OFF = 0;
+uint8_t STEPPER_STATE_STOP = 1;
+uint8_t STEPPER_STATE_FORWARDS = 2;
+uint8_t STEPPER_STATE_STEPS = 3;
+uint8_t STEPPER_STATE_TARGET = 4;
+uint8_t STEPPER_STATE_BACKWARDS = 5;
+
+uint8_t STEPPER_TRACKER = 0;
+
+//PIC32MX250F128B (28-pin SPDIP)
+uint8_t ADCON1=0x06; //Changes PORT A to Digital; turns off analog to digital converters
+uint8_t	CMCON =0x07; //Turns Analog Comparators
+uint8_t	TRISA=0x00; //Configure PORT A as Output
+uint8_t	TRISB=0x00; //Configure PORT B as Output
+uint8_t	TRISC=0x00; //Configure PORT C as Output
+
+uint8_t	PORTA=0x0F;
+////PORTA is RA0 - RA10
+//#byte	PORTB=0x0F
+////PORTB is RB0 - RB10
+//#byte	PORTC=0x0F
+////PORTC is RC0 - RC10
+
+uint8_t MIC_PIN_XIN[7] = {9, 10, 11, 32, 31, 30, 29};
+//Pin 9 connected to Reset of X
+//Pin 10 connected to EN of X
+//Pin 11 connected to SLEEP of X
+//Pin 32 connected to STEP of X
+//Pin 31 connected to MS1 of X
+//Pin 30 connected to MS2 of X
+//Pin 29 connected to DIR of X
+
+uint8_t MIC_PIN_YIN[7] = {12, 13, 14, 28, 27, 26, 25};
+//Pin 12 connected to Reset of Y
+//Pin 13 connected to EN of Y
+//Pin 14 connected to SLEEP of Y
+//Pin 28 connected to STEP of Y
+//Pin 27 connected to MS1 of Y
+//Pin 26 connected to MS2 of Y
+//Pin 25 connected to DIR of Y
 
 //K40 CO2 Laser Engraver/Cutter
 //#define X_MAX_POS 337
@@ -39,20 +88,6 @@ using namespace std;
 
 //communication speed of the printer; need to know the value
 #define BAUDRATE  //value?
-
-//Declare pin functions on the stepper motors (ES Package)
-//Inputs
-#define step 14
-#define dir 17
-#define MS1 8
-#define MS2 9
-#define EN  2
-#define RESET 10
-//Outputs to Motors
-#define OUT1A 21
-#define OUT1B 18
-#define OUT2A 22
-#define OUT2B 1
 
 //Acceleration and velocity
 #define STEPPER_VELOCITY_DEFAULT           500
@@ -70,13 +105,6 @@ using namespace std;
 #define STEP_MODE_HALF       2 //MS1 = HIGH; MS2 = LOW
 #define STEP_MODE_QUARTER    4 //MS1 = LOW; MS2 = HIGH
 #define STEP_MODE_EIGTH      8 //MS1 = HIGH; MS2 = HIGH
-
-//States
-#define STEPPER_STATE_OFF    1
-#define STEPPER_STATE_STOP   2
-#define STEPPER_STATE_DRIVE  3
-#define STEPPER_STATE_STEPS  4
-#define STEPPER_STATE_TARGET 5
 
 //RAMP State??
 #define STEPPER_SPEEDRAMP_STATE_FORWARD        1
@@ -102,14 +130,14 @@ using namespace std;
 #define RESET_ON 0
 
 //Disabling
-#define X_OFF 0
-#define Y_OFF 0
-#define STEP_OFF 0
-#define DIR_OFF 0
-#define MS1_OFF 0
-#define MS2_OFF 0
-#define EN_OFF 1
-#define RESET_OFF 1
+//#define X_OFF 0
+//#define Y_OFF 0
+//#define STEP_OFF 0
+//#define DIR_OFF 0
+//#define MS1_OFF 0
+//#define MS2_OFF 0
+//#define EN_OFF 1
+//#define RESET_OFF 1
 
 class LazTech
 {
@@ -146,7 +174,7 @@ private:
 	double scale;
 	double velocity;
 	//double acceleration;
-	double input[];
+	//double input[];
 };
 
 #endif /* LAZTECH_H_ */
