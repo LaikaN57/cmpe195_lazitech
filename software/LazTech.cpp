@@ -6,7 +6,7 @@
 #include <cmath>
 
 #include "LazTech.h"
-#include "Pt.cpp"
+
 
 using namespace std;
 
@@ -158,7 +158,7 @@ double LazTech::bezierCurve (double x1, double y1, double x2, double y2, double 
 	double Pt3 = ( x3,  y3);
 	double Pt4 = ( x4,  y4);
 
-	int t;
+	int t = 0;
 	int t2 = t * t;
 	int t3 = t2 * t;
 	int tx = 1-t;
@@ -216,35 +216,34 @@ for( double i = 0 ; i < 1 ; i += 0.01 ){
 }
 }
 
-//******************************************************************************
 //Curve with multiple points inputed
 
-//Pt LazTech:: getBezierPoint( std::vector<Pt>& pts, double t)
-//{
-//	Pt pt;
-//	//pt.x = 0;
-//	//pt.y = 0;
-//	std::size_t length = pts.size(); //size in bytes
-//
-//	for(std::size_t i = 0; i < length; i++)
-//	{
+Pt LazTech:: getBezierPoint(std::vector<Pt>& pts, double t)
+{
+	Pt pt;
+	//pt.x = 0;
+	//pt.y = 0;
+	std::size_t length = pts.size(); //size in bytes
+
+	for(std::size_t i = 0; i < length; i++)
+	{
+		pt += pts[i] * binomial_coeff( length - 1, i) * pow(1 - t, length - 1 - i ) * pow(t,i);
 //		pt.x = pow((1-t), 3) * pts[0].x + 3 * t * pow((1-t), 2) * pts[1].x + 3 * (1-t) * pow(t, 2) * pts[2].x + pow(t, 3) * pts[3].x;
 //		pt.x = pow((1-t), 3) * pts[0].y + 3 * t * pow((1-t), 2) * pts[1].y + 3 * (1-t) * pow(t, 2) * pts[2].y + pow(t, 3) * pts[3].y;
-//	}
-//
-////	Pt* tmp = new Pt[numPoints];
-////    memcpy(tmp, points, numPoints * sizeof(Pt));
-////    int i = numPoints - 1;
-////    while (i > 0) {
-////        for (int k = 0; k < i; k++)
-////            tmp[k] = tmp[k] + t * ( tmp[k+1] - tmp[k] );
-////        i--;
-////    }
-////    Pt answer = tmp[0];
-////    delete[] tmp;
-//    return pt;
-//};
-//**************************************************************************************
+	}
+
+//	Pt* tmp = new Pt[numPoints];
+//    memcpy(tmp, points, numPoints * sizeof(Pt));
+//    int i = numPoints - 1;
+//    while (i > 0) {
+//        for (int k = 0; k < i; k++)
+//            tmp[k] = tmp[k] + t * ( tmp[k+1] - tmp[k] );
+//        i--;
+//    }
+//    Pt answer = tmp[0];
+//    delete[] tmp;
+    return pt;
+}
 
 void LazTech::add_curve(int a, int b, int c, int d, int e, int f)
 {
