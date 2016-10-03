@@ -25,7 +25,7 @@ LazTech::LazTech(double x, double y)
 	width = 0;
 	scale = 0;
 	velocity = 0;
-	//input = 0;
+
 }
 
 LazTech::LazTech()
@@ -43,7 +43,6 @@ LazTech::LazTech()
 	width = 0;
 	scale = 0;
 	velocity = 0;
-	//input = 0;
 }
 
 LazTech:: ~LazTech(){
@@ -55,25 +54,59 @@ void LazTech::start()
 
 	//steps per revolution
 
-	STEP_ON; //STEP set to 1
-	DIR_ON; //DIR set to 1
-	MS1_ON; //MS1 set to 1
-	MS2_ON; //MS2 set to 1
-	EN_ON; //EN set to 1
-	RESET_OFF; // RESET set to 0
+	STEPPER_PIN_XIN[0] = 0x0F; // STEP set to 1
+	STEPPER_PIN_XIN[1] = 0x0F; //DIR set to 1
+	STEPPER_PIN_XIN[2] = 0x0F; //MS1 set to 1
+	STEPPER_PIN_XIN[3] = 0x0F; //MS2 set to 1
+	STEPPER_PIN_XIN[4] = 0x00; // EN set to 0
+	STEPPER_PIN_XIN[5] = 0x0F; //RESET set to 1
+
+	STEPPER_PIN_YIN[0] = 0x0F; // STEP set to 1
+	STEPPER_PIN_YIN[1] = 0x0F; //DIR set to 1
+	STEPPER_PIN_YIN[2] = 0x0F; //MS1 set to 1
+	STEPPER_PIN_YIN[3] = 0x0F; //MS2 set to 1
+	STEPPER_PIN_YIN[4] = 0x00; // EN set to 0
+	STEPPER_PIN_YIN[5] = 0x0F; //RESET set to 1
+
 	cout << "Enabling Stepper Motor";
+
+	MIC_PIN_XIN[0] = 0x0F;
+	MIC_PIN_XIN[1] = 0x00;
+	MIC_PIN_XIN[2] = 0x0F;
+	MIC_PIN_XIN[3] = 0x0F;
+	MIC_PIN_XIN[4] = 0x0F;
+	MIC_PIN_XIN[5] = 0x0F;
+	MIC_PIN_XIN[6] = 0x0F;
+	MIC_PIN_XIN[7] = 0x0F;
+
+	MIC_PIN_YIN[0] = 0x0F;
+	MIC_PIN_YIN[1] = 0x00;
+	MIC_PIN_YIN[2] = 0x0F;
+	MIC_PIN_YIN[3] = 0x0F;
+	MIC_PIN_YIN[4] = 0x0F;
+	MIC_PIN_YIN[5] = 0x0F;
+	MIC_PIN_YIN[6] = 0x0F;
+	MIC_PIN_YIN[7] = 0x0F;
+
 
 	//start the velocity
 }
 
 void LazTech::end()
 {
-	STEP_OFF; // STEP set to 0
-	DIR_OFF; //DIR set to 0
-	MS1_OFF; //MS1 set to 0
-	MS2_OFF; //MS2 set to 0
-	EN_OFF; // EN set to 1
-	RESET_OFF; //RESET set to 1
+	STEPPER_PIN_XIN[0] = 0x00; // STEP set to 0
+	STEPPER_PIN_XIN[1] = 0x00; //DIR set to 0
+	STEPPER_PIN_XIN[2] = 0x00; //MS1 set to 0
+	STEPPER_PIN_XIN[3] = 0x00; //MS2 set to 0
+	STEPPER_PIN_XIN[4] = 0x0F; // EN set to 1
+	STEPPER_PIN_XIN[5] = 0x00; //RESET set to 0
+
+	STEPPER_PIN_YIN[0] = 0x00; // STEP set to 0
+	STEPPER_PIN_YIN[1] = 0x00; //DIR set to 0
+	STEPPER_PIN_YIN[2] = 0x00; //MS1 set to 0
+	STEPPER_PIN_YIN[3] = 0x00; //MS2 set to 0
+	STEPPER_PIN_YIN[4] = 0x0F; // EN set to 1
+	STEPPER_PIN_YIN[5] = 0x00; //RESET set to 0
 
 	delay(1);//end with a second delay
 	cout << "Disabling Stepper Motor";
@@ -125,10 +158,10 @@ void LazTech::cutLine(double x1, double y1, double x2, double y2, double x3, dou
 	double mid_x = ((x1 + x2)/2);
 	double mid_y = ((y1 + y2)/2);
 
-	for (int i = 0; i < step ; i++){
-		STEP_ON;
+	for (int i = 0; i < STEPPER_PIN_XIN[0] ; i++){
+		STEPPER_PIN_XIN[0] = 0x0F;
 		delay(0.5);
-		STEP_OFF;
+		STEPPER_PIN_XIN[0] = 0x00;
 		delay(0.5);
 	}
 
