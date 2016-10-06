@@ -4,6 +4,23 @@
 #ifndef PT_H_
 #define PT_H_
 
+
+// Point class
+
+typedef struct {
+	uint32_t x;
+	uint32_t y;
+} point_t;
+
+point_t * point_add(point_t * a, point_t * b) {
+	point_t sum;
+
+	sum.x = a->x + b->x;
+	sum.y = a->y + b->y;
+
+	return &sum;
+}
+
 class Pt
  {
  public:
