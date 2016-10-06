@@ -163,3 +163,4 @@ std::ostream& operator<<(std::ostream& output, const Pt& pts)
 	output << "x = " << pts.x << "  y = " << pts.y;
 	return output;
 }
+
