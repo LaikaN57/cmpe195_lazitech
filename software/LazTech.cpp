@@ -77,7 +77,6 @@ void LazTech::start()
 	MIC_PIN_XIN[4] = 0x0F;
 	MIC_PIN_XIN[5] = 0x0F;
 	MIC_PIN_XIN[6] = 0x0F;
-	MIC_PIN_XIN[7] = 0x0F;
 
 	MIC_PIN_YIN[0] = 0x0F;
 	MIC_PIN_YIN[1] = 0x00;
@@ -86,7 +85,6 @@ void LazTech::start()
 	MIC_PIN_YIN[4] = 0x0F;
 	MIC_PIN_YIN[5] = 0x0F;
 	MIC_PIN_YIN[6] = 0x0F;
-	MIC_PIN_YIN[7] = 0x0F;
 
 
 	//start the velocity
@@ -150,7 +148,7 @@ void LazTech::origin (double x, double y)
 	double yOffset =  y - height; // actual y - default
 }
 
-void LazTech::cutLine(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4) // input as an XYXYXYXY
+void LazTech::cutLine(std::vector<Pt>& pts, double t, string stroke) // input as an XYXYXYXY
 {
 	start();
 
@@ -168,11 +166,11 @@ void LazTech::cutLine(double x1, double y1, double x2, double y2, double x3, dou
 	end();
 }
 
-void LazTech::cutCurve(double x, double y, string stroke)
+void LazTech::cutCurve(std::vector<Pt>& pts, double t, string stroke)
 {
 	start();
-	//cutLine();
-	bezierCurve( x1,  y1,  x2,  y2,  x3,  y3,  x4,  y4);
+	cutLine(pts, t, stroke);
+	getBezierPoint(pts, t );
 	end();
 }
 
@@ -236,17 +234,17 @@ double LazTech:: binomial_coeff(double a, double b)
 }
 
 void LazTech:: getPt_2(){
-for( double i = 0 ; i < 1 ; i += 0.01 ){
-    x1 = getPt( x1 , x2 , i );
-    y1 = getPt( y1 , y2 , i );
-    x2 = getPt( x2 , x3 , i );
-    y2 = getPt( y2 , y3 , i );
+	for( double i = 0 ; i < 1 ; i += 0.01 ){
+		x1 = getPt( x1 , x2 , i );
+		y1 = getPt( y1 , y2 , i );
+		x2 = getPt( x2 , x3 , i );
+		y2 = getPt( y2 , y3 , i );
 
-   double x = getPt( x1 , x2 , i );
-   double y = getPt( y1 , y2 , i );
+	   double x = getPt( x1 , x2 , i );
+	   double y = getPt( y1 , y2 , i );
 
-   cutCurve( x , y , "black" );
-}
+	   cutCurve( x , y , "black" );
+	}
 }
 
 //Curve with multiple points inputed
@@ -278,9 +276,9 @@ Pt LazTech:: getBezierPoint(std::vector<Pt>& pts, double t)
     return pt;
 }
 
-void LazTech::add_curve(int a, int b, int c, int d, int e, int f)
+void LazTech::add_curve(std::vector<Pt>& pts)
 {
-
+	//pts.push_back(std::vector<Pt>());
 }
 
 void LazTech::stroke_line()
