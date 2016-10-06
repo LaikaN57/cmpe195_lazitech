@@ -118,16 +118,16 @@ uint8_t MIC_PIN_YIN[7] = {12, 13, 14, 28, 27, 26, 25};
 #define STEPPER_DIRECTION_FORWARD   1
 #define STEPPER_DIRECTION_BACKWARD -1
 
-
-//Enabling
-#define X_ON 1
-#define Y_ON 1
-#define STEP_ON 1
-#define DIR_ON 1
-#define MS1_ON 1
-#define MS2_ON 1
-#define EN_ON 0
-#define RESET_ON 0
+//
+////Enabling
+//#define X_ON 1
+//#define Y_ON 1
+//#define STEP_ON 1
+//#define DIR_ON 1
+//#define MS1_ON 1
+//#define MS2_ON 1
+//#define EN_ON 0
+//#define RESET_ON 0
 
 //Disabling
 //#define X_OFF 0
@@ -153,8 +153,8 @@ public:
 	void set_x(double x);
 	void set_y(double y);
 	void origin(double x, double y); //for calibration and reset purposes
-	void cutLine(double x1, double y1, double x2, double y2, double x3, double y3, double x4, double y4);// input as an XYXYXYXY
-	void cutCurve(double x, double y, string stroke);
+	void cutLine(std::vector<Pt>& pts, double t, string stroke);
+	void cutCurve(std::vector<Pt>& pts, double t, string stroke);
 	void defaultState(string stroke, double width); // default if selections are not filled before execution
 	double bezierCurve(double, double, double, double, double, double, double, double); // bezier formula
 	double getPt( double n1 , double n2 , float perc );
@@ -162,7 +162,7 @@ public:
 	double binomial_coeff( double a, double b);
 	void getPt_2();
 	Pt getBezierPoint(std::vector<Pt>& pts, double t);
-	void add_curve(int a, int b, int c, int d, int e, int f);
+	void add_curve(std::vector<Pt>& pts);
 	void stroke_line();
 
 
