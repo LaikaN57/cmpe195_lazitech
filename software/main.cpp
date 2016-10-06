@@ -19,6 +19,7 @@ int main()
 
 	//pts inputed without user interface
 	std::vector<std::vector<Pt> > pts;
+	pts.start();
 	double x_input;
 	double y_input;
 	double delta; //delta time variable; 0-1; the smaller the more points calculated across the curve
@@ -52,11 +53,11 @@ int main()
 	{
 		for(double t = 0; t <= 1; t += delta)
 		{
-			getBezierPoint(pts[i], t);
-			cout << endl;
+			cout << getBezierPoint(pts[i], t) << endl;
 		}
 
 	}
+	pts.end();
 	return 0;
 }
 //	while (1)
