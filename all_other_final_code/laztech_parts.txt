@@ -1,0 +1,166 @@
+THIS DOCUMENT DESCRIBES THE LAZTECH DATAPATH FORM UART TO GPIO MOTOR DRIVER.
+
+/*******************************************************************************
+
+STEP 1)
+PDF Compressed GFX Detection validation - The actuall drawing commands are
+                                          contained wtihin a PDF graphics
+                                          object. Below demonstrates our ability
+                                          to find that object and extract the
+                                          data. This data is then passed to zlib
+                                          to be decompressed and our scanner to
+                                          construct cut lines.
+
+*******************************************************************************/
+
+/laztech$ cat ./primative_test.pdf | ./a.out
+Scanning for start marker...
+Scanning for end marker...
+78 9c 8d <<< Output clipped for length ... >>> 7f bc 0a Found end marker.
+
+
+/*******************************************************************************
+
+STEP 2)
+zlib Decompression - this is in progress...
+
+*******************************************************************************/
+
+WIP (using miniz)
+
+
+/*******************************************************************************
+
+STEP 3)
+PDF GFX Scanning validation - The PDF GFX commands dictate what should be cut.
+                              Below shows that our scanner (flex) is able to
+                              properly parse all of the different PDF GFX
+                              opcodes. This will then constructs lines to pass
+                              to a trace line function to manipulate hardware.
+
+*******************************************************************************/
+
+/laztech$ cat ./primative_test_gfx.txt | ./a.out
+Pushed gfx state.
+Modified stroke color.
+Matched PDF name '/a0'.
+Ignored 'gs'.
+Matched PDF array '[]'.
+Ignored an array.
+Pushed gfx state.
+Modified current transfromation matrix.
+Move.
+Line.
+CUT 'S'!
+Ignored a pop/push combo.
+Modified current transfromation matrix.
+Move.
+Curve.
+CUT 'S'!
+Popped gfx state.
+Modified non-stoke color.
+Modified stroke color.
+Pushed gfx state.
+Modified current transfromation matrix.
+Rectangle.
+CUT 'B*'!
+Popped gfx state.
+Modified non-stoke color.
+Modified stroke color.
+Pushed gfx state.
+Modified current transfromation matrix.
+Move.
+Curve.
+Curve.
+Curve.
+Curve.
+Close.
+Move.
+CUT 'B*'!
+Popped gfx state.
+Modified non-stoke color.
+Modified stroke color.
+Pushed gfx state.
+Modified current transfromation matrix.
+Move.
+Line.
+Line.
+Line.
+Line.
+Line.
+Line.
+Line.
+Line.
+Line.
+Close.
+Move.
+CUT 'B*'!
+Ignored a pop/push combo.
+Modified current transfromation matrix.
+Move.
+Curve.
+Curve.
+Curve.
+Line.
+<<< Output clipped for length ... >>>
+CUT 'S'!
+Ignored a pop/push combo.
+Modified current transfromation matrix.
+Move.
+Curve.
+Curve.
+Curve.
+Curve.
+Curve.
+Curve.
+Curve.
+Curve.
+Curve.
+Curve.
+Curve.
+Curve.
+CUT 'S'!
+Popped gfx state.
+Popped gfx state.
+
+
+/*******************************************************************************
+
+STEP 4)
+Trace Line validation - Every line and curve eventually gets split and cut by
+                        this function. Below we demonstrate that our motors are
+                        stepped in the correct order to get from (0, 0) to a
+                        random point. In this case, (5, -21).
+
+*******************************************************************************/
+
+/laztech$ ./a.out
+Trace Line (Interpolate)
+(0, 0) -> (5, -21)
+1 (Y): (0, -1)
+2 (Y): (0, -2)
+3 (Y): (0, -3)
+4 (Y): (0, -4)
+5 (X): (1, -4)
+6 (Y): (1, -5)
+7 (Y): (1, -6)
+8 (Y): (1, -7)
+9 (Y): (1, -8)
+10 (X): (2, -8)
+11 (Y): (2, -9)
+12 (Y): (2, -10)
+13 (Y): (2, -11)
+14 (Y): (2, -12)
+15 (X): (3, -12)
+16 (Y): (3, -13)
+17 (Y): (3, -14)
+18 (Y): (3, -15)
+19 (Y): (3, -16)
+20 (X): (4, -16)
+21 (Y): (4, -17)
+22 (Y): (4, -18)
+23 (Y): (4, -19)
+24 (Y): (4, -20)
+25 (XY): (5, -21)
+
+
